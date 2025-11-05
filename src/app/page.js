@@ -59,6 +59,47 @@ const data = [
   },
 ];
 
+
+
+const employees = [ 
+  { id:1,
+    img: "employer1.jpg",
+    name:"Michael Chen",
+    job:"Senior Real Estate Agent",
+    count:"24 Properties Sold",
+
+  },
+  { id:2,
+    img: "employer2.jpg",
+    name:"David Martinez",
+    job:"Property Specialist",
+    count:"18 Properties Sold",
+
+  },
+  { id:3,
+    img: "employer3.jpg",
+    name:"James Wilson",
+    job:"Investment Advisor",
+    count:"32 Properties Sold",
+
+  },
+  { id:4,
+    img: "employer4.jpg",
+    name:"Robert Thompson",
+    job:"Luxury Home Expert",
+    count:"28 Properties Sold",
+  },
+
+
+
+];
+
+
+
+
+
+
+
 export default function Home() {
   return (
     <div className=" justify-center gap-20 flex flex-col items-center p-3 bg-white ">
@@ -199,7 +240,7 @@ export default function Home() {
             <p className="text-center text-[26px] font-semibold">
               Explore Properties
             </p>
-            <div className="grid grid-cols-3 grid-rows-2 gap-8">
+            <div className="grid grid-cols-3 grid-rows-2 w-full  w-[1280px] mx-auto gap-8">
               {data.map((props) => (
                 <PropertyCard
                   key={props.id}
