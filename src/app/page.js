@@ -4,6 +4,8 @@ import { PropertyCard } from "./_components/PropertyCard";
 import { EmployeeCard } from "./_components/EmployeeCard";
 import { FeatureCard } from "./_components/FeatureCard";
 import { Advise } from "./_components/Advise";
+import {Choices } from "./_components/Choices";
+import { propagateServerField } from "next/dist/server/lib/render-server";
 const data = [
   {
     id: 1,
@@ -137,6 +139,28 @@ const advices = [
   },
 ];
 
+const choices = [
+  {
+    id: 1,
+    img: "Choice1.png",
+    header: "Find your dream home for life",
+    text: "Browse thousands of properties and find the perfect place",
+  },
+  {
+    id: 1,
+    img: "Choice1.png",
+    header: "Pre-Approved Loan $1 to $5",
+    text: "Get pre-approved quickly and know your budget",
+  },
+  {
+    id: 1,
+    img: "Choice1.png",
+    header: "Commission free for life",
+    text: "Save thousands with our commission-free model",
+  },
+
+]
+
 export default function Home() {
   return (
     <div className=" justify-center gap-20 flex flex-col items-center p-3 bg-white ">
@@ -229,6 +253,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+      <div>
       <div className="w-full ">
         <div className=" items-center flex flex-col">
           <p className="text-[20px] font-semibold text-black">
@@ -255,6 +282,19 @@ export default function Home() {
           />
         ))}
       </div>
+      <div  className="  flex items-center justify-center mb-20 rounded-[8px] w-[140.34px] h-[34px] text-center text-white bg-[#FF6900] bottom-1.5">Meet the team</div>
+      </div>
+
+      <div className="">
+        {choices.map((props) => (
+        <Choices 
+        key={props.id}
+        img={props.img}
+        header={props.header}
+        text={props.text}/>
+          ))};
+      </div>
+
     </div>
-  );
-}
+
+
