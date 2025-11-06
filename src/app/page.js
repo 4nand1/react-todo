@@ -1,7 +1,9 @@
 import React from "react";
 
 import { PropertyCard } from "./_components/PropertyCard";
-
+import { EmployeeCard } from "./_components/EmployeeCard";
+import { FeatureCard } from "./_components/FeatureCard";
+import { Advise } from "./_components/Advise";
 const data = [
   {
     id: 1,
@@ -59,46 +61,81 @@ const data = [
   },
 ];
 
-
-
-const employees = [ 
-  { id:1,
-    img: "employer1.jpg",
-    name:"Michael Chen",
-    job:"Senior Real Estate Agent",
-    count:"24 Properties Sold",
-
+const employees = [
+  {
+    id: 1,
+    img: "employer.jpg",
+    name: "Michael Chen",
+    job: "Senior Real Estate Agent",
+    count: "24 Properties Sold",
   },
-  { id:2,
+  {
+    id: 2,
     img: "employer2.jpg",
-    name:"David Martinez",
-    job:"Property Specialist",
-    count:"18 Properties Sold",
-
+    name: "David Martinez",
+    job: "Property Specialist",
+    count: "18 Properties Sold",
   },
-  { id:3,
+  {
+    id: 3,
     img: "employer3.jpg",
-    name:"James Wilson",
-    job:"Investment Advisor",
-    count:"32 Properties Sold",
-
+    name: "James Wilson",
+    job: "Investment Advisor",
+    count: "32 Properties Sold",
   },
-  { id:4,
+  {
+    id: 4,
     img: "employer4.jpg",
-    name:"Robert Thompson",
-    job:"Luxury Home Expert",
-    count:"28 Properties Sold",
+    name: "Robert Thompson",
+    job: "Luxury Home Expert",
+    count: "28 Properties Sold",
   },
-
-
-
 ];
 
+const features = [
+  {
+    icon: "App.png",
+    title: "Top-end Curation",
+    desc: "Carefully selected properties that meet our high standards of quality",
+  },
+  {
+    icon: "App (1).png",
+    title: "Personalized Insight",
+    desc: "Expert guidance tailored to your unique needs and preferences",
+  },
+  {
+    icon: "App (2).png",
+    title: "Transaction Moving",
+    desc: "Streamlined process from viewing to closing with dedicated support",
+  },
+];
 
-
-
-
-
+const advices = [
+  {
+    id: 1,
+    img: "Container.png",
+    header: "Browse Curated Homes",
+    text: "Explore our carefully selected collection of properties that match your lifestyle and budget. Every listing is verified and includes detailed information.",
+  },
+  {
+    id: 2,
+    img: "Container (1).png",
+    header: "Get Expert Advice",
+    text: "Connect with experienced agents who understand the market and can guide you through every step of your home-buying journey.",
+  },
+  {
+    id: 3,
+    img: "Container (2).png",
+    header: "Build a Tour",
+    text: "Schedule viewings at your convenience and visit multiple properties in one trip. Our team coordinates everything to save you time.",
+  },
+  {
+    id: 4,
+    img: "Container (3).png",
+    header: "Offer & Close",
+    text: "Make confident offers with our support and navigate the closing process smoothly. We handle the paperwork so you can focus on moving in.",
+  },
+];
 
 export default function Home() {
   return (
@@ -114,29 +151,13 @@ export default function Home() {
       </div>
 
       <div className="flex  h-[234px] w-[1281px] gap-6 justify-center items-center">
-        <div className="h-[234px] border border-gray-300 w-[410.67px] rounded-[14px] flex flex-col items-center gap-9 p-[25px]">
-          <img src="App.png" />
-          <p className="text-[15px] text-black">Personalized Insight</p>
-          <p className="text-center text-[14px] text-[#4A5565]">
-            Expert guidance tailored to your unique needs and preferences
-          </p>
-        </div>
-
-        <div className="h-[234px] border border-gray-300 w-[410.67px] rounded-[14px] flex flex-col items-center gap-9 p-[25px]">
-          <img src="App.png" />
-          <p className="text-[15px] text-black">Personalized Insight</p>
-          <p className="text-center text-[14px] text-[#4A5565]">
-            Expert guidance tailored to your unique needs and preferences
-          </p>
-        </div>
-
-        <div className="h-[234px] border border-gray-300 w-[410.67px] rounded-[14px] flex flex-col items-center gap-9 p-[25px]">
-          <img src="App.png" />
-          <p className="text-[15px] text-black">Transaction Moving</p>
-          <p className="text-center text-[14px] text-[#4A5565]">
-            Streamlined process from viewing to closing with dedicated support
-          </p>
-        </div>
+        {features.map((props) => (
+          <FeatureCard
+            icon={props.icon}
+            title={props.title}
+            desc={props.desc}
+          />
+        ))}
       </div>
 
       <div className="mb-20 rounded-[8px] w-[140.34px] h-[34px] text-center text-white bg-[#FF6900] bottom-1.5">
@@ -154,68 +175,14 @@ export default function Home() {
         </p>
 
         <div className="grid grid-cols-2 grid-rows-2 gap-48px pt-10 pb-10">
-          <div className="flex gap-8 w-[624px]">
-            <div>
-              <img src="Container.png" />
-            </div>
-            <div>
-              <p className="text-[20px] font-semibold text-black">
-                Browse Curated Homes
-              </p>
-              <p className="text-[16px] mt-3 text-gray-400">
-                Explore our carefully selected collection of properties that
-                match your lifestyle and budget. Every listing is verified and
-                includes detailed information.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-8 w-[624px]">
-            <div>
-              <img src="Container (1).png" />
-            </div>
-            <div>
-              <p className="text-[20px] font-semibold text-black">
-                Get Expert Advice
-              </p>
-              <p className="text-[16px] mt-3 text-gray-400">
-                Connect with experienced agents who understand the market and
-                can guide you through every step of your home-buying journey.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-8 w-[624px]">
-            <div>
-              <img src="Container (2).png" />
-            </div>
-            <div>
-              <p className="text-[20px] font-semibold text-black">
-                Build a Tour
-              </p>
-              <p className="text-[16px] mt-3 text-gray-400">
-                Schedule viewings at your convenience and visit multiple
-                properties in one trip. Our team coordinates everything to save
-                you time.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-8 w-[624px]">
-            <div>
-              <img src="Container (3).png" />
-            </div>
-            <div>
-              <p className="text-[20px] font-semibold text-black">
-                Offer & Close
-              </p>
-              <p className="text-[16px] mt-3 text-gray-400">
-                Make confident offers with our support and navigate the closing
-                process smoothly. We handle the paperwork so you can focus on
-                moving in.
-              </p>
-            </div>
-          </div>
+          {advices.map((props) => (
+            <Advise
+              key={props.id}
+              img={props.img}
+              header={props.header}
+              text={props.text}
+            />
+          ))}
         </div>
       </div>
 
@@ -240,7 +207,7 @@ export default function Home() {
             <p className="text-center text-[26px] font-semibold">
               Explore Properties
             </p>
-            <div className="grid grid-cols-3 grid-rows-2 w-full  w-[1280px] mx-auto gap-8">
+            <div className="grid grid-cols-3 grid-rows-2 w-full   mx-auto gap-8">
               {data.map((props) => (
                 <PropertyCard
                   key={props.id}
@@ -252,7 +219,6 @@ export default function Home() {
                   sqft={props.sqft}
                 />
               ))}
-              
             </div>
 
             <div className="flex justify-center ">
@@ -276,6 +242,18 @@ export default function Home() {
             stress-free
           </p>
         </div>
+      </div>
+
+      <div className="flex gap-[24px] ">
+        {employees.map((props) => (
+          <EmployeeCard
+            key={props.id}
+            name={props.name}
+            img={props.img}
+            job={props.job}
+            count={props.count}
+          />
+        ))}
       </div>
     </div>
   );

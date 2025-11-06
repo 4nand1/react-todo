@@ -2,7 +2,7 @@
 
 export const PropertyCard = (props) => {
   return (
-    <div className="w-[408px] h-[370px]  shadow-lg rounded-xl overflow-hidden">
+    <div className="w-full h-[370px]  shadow-lg rounded-xl overflow-hidden">
       <img
         src={props.img}
         alt={props.name}
@@ -15,17 +15,17 @@ export const PropertyCard = (props) => {
           <div className="flex gap-2 ">
             <img src="Icon.png" className="w-4 h-4" />
             <span>{props.beds} Bedrooms</span>
-                      </div>
-            <div className="flex p-[4px]">
-              <div className="flex gap-2">
-                <img src="Icon (1).png" className="w-4 h-4 ml-3" />
-                <span>{props.baths} Bathrooms</span>
-              </div>
-              <div className="flex gap-2">
-                <img src="Icon (2).png" className="w-4 h-4 ml-3" />
-                <span>{props.sqft} sqft</span>
-              </div>
+          </div>
+          <div className="flex p-[4px]">
+            <div className="flex gap-2">
+              <img src="Icon (1).png" className="w-4 h-4 ml-3" />
+              <span>{props.baths} Bathrooms</span>
             </div>
+            <div className="flex gap-2">
+              <img src="Icon (2).png" className="w-4 h-4 ml-3" />
+              <span>{props.sqft} sqft</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
