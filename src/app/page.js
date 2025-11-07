@@ -8,6 +8,7 @@ import { Choices } from "./_components/Choices";
 import { Search } from "./_components/Search";
 import { Footer } from "./_components/Footer";
 import { Ending } from "./_components/Ending"
+import { Button } from "./_components/Button";
 
 const data = [
   {
@@ -322,9 +323,6 @@ export default function Home() {
               count={props.count}
             />
           ))}
-        </div>
-        <div className="  flex items-center justify-center mb-20 rounded-[8px] w-[140.34px] h-[34px] text-center text-white bg-[#FF6900] bottom-1.5">
-          Meet the team
         </div>
       </div>
 
