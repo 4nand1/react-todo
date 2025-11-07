@@ -4,8 +4,11 @@ import { PropertyCard } from "./_components/PropertyCard";
 import { EmployeeCard } from "./_components/EmployeeCard";
 import { FeatureCard } from "./_components/FeatureCard";
 import { Advise } from "./_components/Advise";
-import {Choices } from "./_components/Choices";
-import { propagateServerField } from "next/dist/server/lib/render-server";
+import { Choices } from "./_components/Choices";
+import { Search } from "./_components/Search";
+import { Footer } from "./_components/Footer";
+import { Ending } from "./_components/Ending"
+
 const data = [
   {
     id: 1,
@@ -142,24 +145,63 @@ const advices = [
 const choices = [
   {
     id: 1,
-    img: "Choice1.png",
+    img: "Choice.png",
     header: "Find your dream home for life",
     text: "Browse thousands of properties and find the perfect place",
   },
   {
     id: 1,
-    img: "Choice1.png",
+    img: "Choice(1).png",
     header: "Pre-Approved Loan $1 to $5",
     text: "Get pre-approved quickly and know your budget",
   },
   {
     id: 1,
-    img: "Choice1.png",
+    img: "Choice(2).png",
     header: "Commission free for life",
     text: "Save thousands with our commission-free model",
   },
+];
 
+const footer = [
+  {
+    id:1,
+    header:"NEED HELP",
+    text1:"Contact Us",
+    text2:"FAQ",
+    text3:"Support",
+    text4:"",
+
+  },
+  {
+    id:2,
+    header:"COMPANY",
+    text1:"About Us",
+    text2:"Careers",
+    text3:"Blog",
+    text4:"Press",
+
+  },
+  {
+    id:3,
+    header:"QUICK LINKS",
+    text1:"Buy",
+    text2:"Sell",
+    text3:"Rent",
+    text4:"Mortage",
+
+  },
+  {
+    id:1,
+    header:"FOLLOW",
+    text1:"Facebook",
+    text2:"Instagram",
+    text3:"Twitter",
+    text4:"LinkedIn",
+
+  },
 ]
+
 
 export default function Home() {
   return (
@@ -254,47 +296,72 @@ export default function Home() {
         </div>
       </div>
 
-
       <div>
-      <div className="w-full ">
-        <div className=" items-center flex flex-col">
-          <p className="text-[20px] font-semibold text-black">
-            Meet the People
-          </p>
-          <p className="text-[20px] font-semibold text-black">
-            Behind the Process
-          </p>
-          <p className="text-[16px] mt-3 text-gray-400">
-            Our streamlined process makes finding your dream home simple and
-            stress-free
-          </p>
+        <div className="w-full ">
+          <div className=" items-center flex flex-col">
+            <p className="text-[20px] font-semibold text-black">
+              Meet the People
+            </p>
+            <p className="text-[20px] font-semibold text-black">
+              Behind the Process
+            </p>
+            <p className="text-[16px] mt-3 text-gray-400">
+              Our streamlined process makes finding your dream home simple and
+              stress-free
+            </p>
+          </div>
+        </div>
+
+        <div className="flex gap-[24px] ">
+          {employees.map((props) => (
+            <EmployeeCard
+              key={props.id}
+              name={props.name}
+              img={props.img}
+              job={props.job}
+              count={props.count}
+            />
+          ))}
+        </div>
+        <div className="  flex items-center justify-center mb-20 rounded-[8px] w-[140.34px] h-[34px] text-center text-white bg-[#FF6900] bottom-1.5">
+          Meet the team
         </div>
       </div>
 
-      <div className="flex gap-[24px] ">
-        {employees.map((props) => (
-          <EmployeeCard
+      <div className="grid grid-cols-3 grid-rows-1 w-[1064.99] ">
+        {choices.map((props) => (
+          <Choices
             key={props.id}
-            name={props.name}
             img={props.img}
-            job={props.job}
-            count={props.count}
+            header={props.header}
+            text={props.text}
           />
         ))}
-      </div>
-      <div  className="  flex items-center justify-center mb-20 rounded-[8px] w-[140.34px] h-[34px] text-center text-white bg-[#FF6900] bottom-1.5">Meet the team</div>
+        ;
       </div>
 
-      <div className="">
-        {choices.map((props) => (
-        <Choices 
-        key={props.id}
-        img={props.img}
-        header={props.header}
-        text={props.text}/>
-          ))};
+      <div className="w-screen flex flex-col gap-6 items-center h-[260px] bg-[#101828]">
+        <Search/>
       </div>
+
+      <div className="w-full bg-white flex justify-center py-10">
+  <div className="w-full max-w-[1280px] grid grid-cols-4 gap-12">
+    {footer.map((item) => (
+      <Footer
+        key={item.id}
+        header={item.header}
+        text1={item.text1}
+        text2={item.text2}
+        text3={item.text3}
+        text4={item.text4}
+      />
+    ))}
+  </div>
+</div>
+<div>
+  <Ending/>
+</div>
 
     </div>
-
-
+  );
+}
